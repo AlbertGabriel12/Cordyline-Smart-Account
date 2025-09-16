@@ -5,9 +5,9 @@ pragma solidity ^0.8.28;
 /* solhint-disable no-empty-blocks */
 /* solhint-disable no-inline-assembly */
 
-import "../../interfaces/IAccount.sol";
-import "../../interfaces/IEntryPoint.sol";
-import "../../utils/Exec.sol";
+import "../interfaces/IAccount.sol";
+import "../interfaces/IEntryPoint.sol";
+import "../utils/Exec.sol";
 import "./UserOperationLib.sol";
 
 /**
