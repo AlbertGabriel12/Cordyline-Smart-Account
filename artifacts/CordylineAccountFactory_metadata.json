@@ -1,0 +1,798 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IEntryPoint",
+						"name": "entryPoint",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					}
+				],
+				"name": "AddressEmptyCode",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "AddressInsufficientBalance",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "FailedInnerCall",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidAction",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "entryPoint",
+						"type": "address"
+					}
+				],
+				"name": "InvalidEntryPoint",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "OwnableInvalidOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "OwnableUnauthorizedAccount",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "SafeERC20FailedOperation",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TransferFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZeroAddressNotAllowed",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferStarted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ACCOUNT_IMPLEMENTATION",
+				"outputs": [
+					{
+						"internalType": "contract CordylineAccount",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ENTRY_POINT",
+				"outputs": [
+					{
+						"internalType": "contract IEntryPoint",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "acceptOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "unstakeDelay",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addStake",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "salt",
+						"type": "uint256"
+					}
+				],
+				"name": "createAccount",
+				"outputs": [
+					{
+						"internalType": "contract CordylineAccount",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "salt",
+						"type": "uint256"
+					}
+				],
+				"name": "getAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pendingOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unlockStake",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "withdrawStake",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"details": "A UserOperations \"initCode\" holds the address of the factory, and a method call (`createAccount`). The factory's `createAccount` returns the target account address even if it is already installed. This way, `entryPoint.getSenderAddress()` can be called either before or after the account is created.",
+			"errors": {
+				"AddressEmptyCode(address)": [
+					{
+						"details": "There's no code at `target` (it is not a contract)."
+					}
+				],
+				"AddressInsufficientBalance(address)": [
+					{
+						"details": "The ETH balance of the account is not enough to perform the operation."
+					}
+				],
+				"FailedInnerCall()": [
+					{
+						"details": "A call to an address target failed. The target may have reverted."
+					}
+				],
+				"OwnableInvalidOwner(address)": [
+					{
+						"details": "The owner is not a valid owner account. (eg. `address(0)`)"
+					}
+				],
+				"OwnableUnauthorizedAccount(address)": [
+					{
+						"details": "The caller account is not authorized to perform an operation."
+					}
+				],
+				"SafeERC20FailedOperation(address)": [
+					{
+						"details": "An operation with an ERC20 token failed."
+					}
+				]
+			},
+			"kind": "dev",
+			"methods": {
+				"acceptOwnership()": {
+					"details": "The new owner accepts the ownership transfer."
+				},
+				"addStake(uint32,uint256)": {
+					"details": "Only callable by owner.",
+					"params": {
+						"amount": "Amount of native currency to stake.",
+						"unstakeDelay": "Unstake delay for the stake."
+					}
+				},
+				"createAccount(address,uint256)": {
+					"details": "During UserOperation execution, this method is called only if the account is not deployed. This method returns an existing account address so that entryPoint.getSenderAddress() would work even after account creation.",
+					"params": {
+						"owner": "The owner of the account to be created.",
+						"salt": "A salt, which can be changed to create multiple accounts with the same owner."
+					},
+					"returns": {
+						"account": "The address of either the newly deployed account or an existing account with this owner and salt."
+					}
+				},
+				"getAddress(address,uint256)": {
+					"params": {
+						"owner": "The owner of the account to be created.",
+						"salt": "A salt, which can be changed to create multiple accounts with the same owner."
+					},
+					"returns": {
+						"_0": "The address of the account that would be created with `createAccount`."
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"pendingOwner()": {
+					"details": "Returns the address of the pending owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Starts the ownership transfer of the contract to a new account. Replaces the pending transfer if there is one. Can only be called by the current owner."
+				},
+				"unlockStake()": {
+					"details": "Only callable by owner."
+				},
+				"withdraw(address,address,uint256)": {
+					"details": "Can withdraw stuck erc20s or native currency.",
+					"params": {
+						"amount": "Amount of the token to withdraw in case of rebasing tokens.",
+						"to": "Address to send erc20s or native currency to.",
+						"token": "Address of the token to withdraw, 0 address for native currency."
+					}
+				},
+				"withdrawStake(address)": {
+					"details": "Only callable by owner.",
+					"params": {
+						"to": "Address to send native currency to."
+					}
+				}
+			},
+			"title": "A factory contract for CordylineAccount.",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"addStake(uint32,uint256)": {
+					"notice": "Add stake to an entry point."
+				},
+				"createAccount(address,uint256)": {
+					"notice": "Create an account, and return its address. Returns the address even if the account is already deployed."
+				},
+				"getAddress(address,uint256)": {
+					"notice": "Calculate the counterfactual address of this account as it would be returned by `createAccount`."
+				},
+				"renounceOwnership()": {
+					"notice": "Overriding to disable renounce ownership in Ownable."
+				},
+				"unlockStake()": {
+					"notice": "Start unlocking stake for an entry point."
+				},
+				"withdraw(address,address,uint256)": {
+					"notice": "Withdraw funds from this contract."
+				},
+				"withdrawStake(address)": {
+					"notice": "Withdraw stake from an entry point."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/CordylineAccountFactory.sol": "CordylineAccountFactory"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":@openzeppelin/=src/external/openzeppelin-contracts/",
+			":ds-test/=lib/forge-std/lib/ds-test/src/",
+			":forge-std/=lib/forge-std/src/"
+		]
+	},
+	"sources": {
+		"src/CordylineAccount.sol": {
+			"keccak256": "0x2a7ad4bf24adce68bc3226e7b9a44e5203d1d0fc3dd8b327409f7db4fc272365",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://298f05934bfa16cd67663e292e77e795c565ed50ecfc10d64693f19fb909eb2b",
+				"dweb:/ipfs/QmXUf6vE55kybYsNcbm3LeQ8HyjVXRYh3761YZ2hSzFNK6"
+			]
+		},
+		"src/CordylineAccountFactory.sol": {
+			"keccak256": "0xdbe7d8c83ab1f93a7bd4a8ec647cb4b1d207d7c476e688606de9fe38d4cc2948",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://1a5f9b3f08e9bd89136fad1531351a3722b4a7b0b6abe3a01b030ee6b8a8c60a",
+				"dweb:/ipfs/QmQwk7wDTPusQjqULWeG2sfcGjWC5DYkitFQgEUkrfiCTY"
+			]
+		},
+		"src/common/BaseCordylineAccount.sol": {
+			"keccak256": "0x270c3406882ff2064549d88277fd18dfae01a1976f2a335173569cd1d0724b9a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://807d5620c34131e5da329078b39a4745c904c7da6814100f36ce31051eca0567",
+				"dweb:/ipfs/QmZCAxrWifDSNQVDuJfLMYoV3xEjnp2Mut4SYfr5b9PWHC"
+			]
+		},
+		"src/common/BaseCordylineAccountFactory.sol": {
+			"keccak256": "0xe47472d6f5e968096a84cadaa3d5e3676df563b39a71d0a94234a0c76f5a914e",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://680c4bfdb70b58524060366f191b80b2c376e5e16520f85e4be6568b47e6673f",
+				"dweb:/ipfs/QmTYN8vpeHfjfjW53p2aVE7mnesba9oWmgeAU2PHQNTHSz"
+			]
+		},
+		"src/common/CustomSlotInitializable.sol": {
+			"keccak256": "0xc0ab88d8c4382428d6fdd6890f143773caf9623bce52a459c02a14f01b9210d6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://362fab071b94cb5ad4db2a06e8ec33a580563c19a047b0fd1802e596d961cb8c",
+				"dweb:/ipfs/QmVV9iCVrRtg6e7aYWaFkVUcT2EK9yxvwNod1R1fAA9Rny"
+			]
+		},
+		"src/common/ERC1271.sol": {
+			"keccak256": "0xe19b6b0d53965dd5957e3396ce7207b4f21b876db7a2719843eea510db5d5e64",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://08432003263c8f4703be0f2af08e47f136d1a94ba3338538505f73651fd85b3c",
+				"dweb:/ipfs/QmZh5MXTFiCibKUFu53jj1yYmWLds83sPQh5kY9urjVZi3"
+			]
+		},
+		"src/core/BaseAccount.sol": {
+			"keccak256": "0x071e38cf697bedbfe021955879277620ff763ecca1a1143ce14792e8c86c6d94",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1d55468ffadcec140a1dc853fac153de985d7335655e70935b9d28e148a495ab",
+				"dweb:/ipfs/QmXMPLx92TLCDRtNTdmTLSWBNbPVmSGeN9im2zsK9P9p4R"
+			]
+		},
+		"src/core/UserOperationLib.sol": {
+			"keccak256": "0xf332e1963894581e6217928dc162c13b4fdf4d3f996d9a4e365c104389a664d7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8f25c19e76484af2581d13bad59b32ca9befd39fefc001bc76d30132b5d9b27a",
+				"dweb:/ipfs/QmZq1P6pk5KWKpPp29X4tvTKzSu6URBNJMrgsPJzrSdpvw"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/access/Ownable.sol": {
+			"keccak256": "0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6",
+				"dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/access/Ownable2Step.sol": {
+			"keccak256": "0x5d3e5de9eadfa1f8a892eb2e95bbebd3e4b8c8ada5b76f104d383fea518fa688",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cde108962511e6a4d3cfb7b6fb6a36bdcfa300761c17dad2d7dd87d4f8117b48",
+				"dweb:/ipfs/Qmf7YxUVK68JedWybWfXvzLCegsD95DtGc3mbpEWkWSMm8"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/interfaces/IERC1271.sol": {
+			"keccak256": "0x85a45f3f10014a0f8be41157a32b6a5f905753ea64a4b64e29fc12b7deeecf39",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c3c74009ce36136b36c77c23935b8e4a7b4f253be2da2be4fb4a916b1ce43743",
+				"dweb:/ipfs/QmcH36v3iN7SJJuF73AunLR2LtNxhVJ1wm63ph4dPZ4pcL"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol": {
+			"keccak256": "0xb69597a63b202e28401128bed6a6d259e8730191274471af7303eafb247881a3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://25addbda49a578b3318130585601344c5149a5549d749adf88e9685349a46b23",
+				"dweb:/ipfs/Qme2DuD8gpsve1ZvaSMQpBwMdpU7yAtekDwr7gUp8dX4zX"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+			"keccak256": "0x6008dabfe393240d73d7dd7688033f72740d570aa422254d29a7dce8568f3aff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f5196ec75139918c6c7bb4251b36395e668f1fa6d206beba7e7520e74913940d",
+				"dweb:/ipfs/QmSyqjksXxmm2mCG6qRd1yuwLykypkSVBbnBnGqJRcuJMi"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0x37bb49513c49c87c4642a891b13b63571bc87013dde806617aa1efb54605f386",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b3036b3a83b7c48f96641f2a9002b9f2dcb6a5958dd670894ada21ae8229b3d0",
+				"dweb:/ipfs/QmUNfSBdoVtjhETaUJCYcaC7pTMgbhht926tJ2uXJbiVd3"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol": {
+			"keccak256": "0x7f7a26306c79a65fb8b3b6c757cd74660c532cd8a02e165488e30027dd34ca49",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d01e0b2b837ee2f628545e54d8715b49c7ef2befd08356c2e7f6c50dde8a1c22",
+				"dweb:/ipfs/QmWBAn6y2D1xgftci97Z3qR9tQnkvwQpYwFwkTvDMvqU4i"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/Address.sol": {
+			"keccak256": "0xaf28a975a78550e45f65e559a3ad6a5ad43b9b8a37366999abd1b7084eb70721",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b7bd24e224f67f65bfadf85dc2929fa965456bb2415478bd0125471b5ce35245",
+				"dweb:/ipfs/QmRaydGr8BTHs1kvaZfsNU69pKzUAGFrvABn1KiRSbE51y"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/Context.sol": {
+			"keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/Strings.sol": {
+			"keccak256": "0x55f102ea785d8399c0e58d1108e2d289506dde18abc6db1b7f68c1f9f9bc5792",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6e52e0a7765c943ef14e5bcf11e46e6139fa044be564881378349236bf2e3453",
+				"dweb:/ipfs/QmZEeeXoFPW47amyP35gfzomF9DixqqTEPwzBakv6cZw6i"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol": {
+			"keccak256": "0xeed0a08b0b091f528356cbc7245891a4c748682d4f6a18055e8e6ca77d12a6cf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ba80ba06c8e6be852847e4c5f4492cef801feb6558ae09ed705ff2e04ea8b13c",
+				"dweb:/ipfs/QmXRJDv3xHLVQCVXg1ZvR35QS9sij5y9NDWYzMfUfAdTHF"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/cryptography/MessageHashUtils.sol": {
+			"keccak256": "0xba333517a3add42cd35fe877656fc3dfcc9de53baa4f3aabbd6d12a92e4ea435",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2ceacff44c0fdc81e48e0e0b1db87a2076d3c1fb497341de077bf1da9f6b406c",
+				"dweb:/ipfs/QmRUo1muMRAewxrKQ7TkXUtknyRoR57AyEkoPpiuZQ8FzX"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/cryptography/SignatureChecker.sol": {
+			"keccak256": "0x6b11eb41a228cca35d4b662b4df69fcd75192851365102690f57b2ac01e83fe6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ab006a2983ed350d2af21ddcdd835dcae3b8340086cc4d088460da5abd041f69",
+				"dweb:/ipfs/QmbEacDhkJZiGrgzLjB4pNtE8Z1uudjDw1DvcDUTVQFsLG"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/introspection/ERC165Checker.sol": {
+			"keccak256": "0xac3d50e321a48a40b4496970ce725900f13aeb2255b7c1203f5adbe98c4a911a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1d7b235b578347dce2d831a76f122e820a7db7e73fd2e47f13bafdcd61c5b066",
+				"dweb:/ipfs/QmVAELwambfJa55HfiCoz1kFFh7iYwRYeW5x8si6AFM4iX"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x4296879f55019b23e135000eb36896057e7101fb7fb859c5ef690cf14643757b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://87b3541437c8c443ccd36795e56a338ed12855eec17f8da624511b8d1a7e14df",
+				"dweb:/ipfs/QmeJQCtZrQjtJLr6u7ZHWeH3pBnjtLWzvRrKViAi7UZqxL"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/math/Math.sol": {
+			"keccak256": "0x005ec64c6313f0555d59e278f9a7a5ab2db5bdc72a027f255a37c327af1ec02d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ece9f0b9c8daca08c76b6b5405a6446b6f73b3a15fab7ff56e296cbd4a2c875",
+				"dweb:/ipfs/QmQyRpyPRL5SQuAgj6SHmbir3foX65FJjbVTTQrA2EFg6L"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/math/SignedMath.sol": {
+			"keccak256": "0x5f7e4076e175393767754387c962926577f1660dd9b810187b9002407656be72",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7d533a1c97cd43a57cd9c465f7ee8dd0e39ae93a8fb8ff8e5303a356b081cdcc",
+				"dweb:/ipfs/QmVBEei6aTnvYNZp2CHYVNKyZS4q1KkjANfY39WVXZXVoT"
+			]
+		},
+		"src/external/solady/EIP712.sol": {
+			"keccak256": "0xc256c8769c2aa92fa192d21f5f4bd4387dfc6ef095d1a18476a3c6ea2e43f4f3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ce6386477e8f74d89e68071c000bd98ebdab9f0ad154615b84492ff94d17a783",
+				"dweb:/ipfs/QmZMX8Pivh7sJxX72pjPn2PcMREcRz1AM4oKNNgPf6bndK"
+			]
+		},
+		"src/external/solady/LibClone.sol": {
+			"keccak256": "0xc25f54771b24231b784112be405e05354e3126960930180d665f84a2d24e8fae",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f4499258b0a9b8a34a1ebee75e6754ad319565a5fe2afea260cfbfb8934e389b",
+				"dweb:/ipfs/QmYzFMPwXiwSqYZ5RN3iduX4c5PTG6ze9TyQFtQCDiSNXZ"
+			]
+		},
+		"src/external/solady/UUPSUpgradeable.sol": {
+			"keccak256": "0x46d39579c440757e6e20ed164ca4409bd8eb652d506d48a466755c165d27f8c5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3c21148774462900d0929d09a2d56420a6850065d91ac001c10887ee796074ac",
+				"dweb:/ipfs/QmNT12cuvaqf1puHQYAJeHFoiYBfmgKKbkLkkW7ETEkjRk"
+			]
+		},
+		"src/helpers/Helpers.sol": {
+			"keccak256": "0x42b948af5fa14a96149611595df1186800c7558b2de8762e4b45a7c45c16f65e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://737a7908131ece48a5df1faaa3d0be79c42792379c27f5615dae6aa14cd68c2f",
+				"dweb:/ipfs/QmPAxGMDxuek7XWSUVfZpvYE8bustfsjTDVDK8hmE88e1f"
+			]
+		},
+		"src/interfaces/IAccount.sol": {
+			"keccak256": "0x1030b464b49ce80da46b5b6c9af357c2d526f308de61391db6a4ec767d33b864",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://671945f8e18e7305797312b5a209506be3c9bd1d9b9b561c1e8863bccfa61319",
+				"dweb:/ipfs/QmVanLK5Aenrb7J94doiE1C9oHwo86jvv8NrpDeNHwvnii"
+			]
+		},
+		"src/interfaces/IAggregator.sol": {
+			"keccak256": "0xdf580eafa015b81bde436d6a5468cc92b531ada84007cef885e923f6dfc5e8bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://99f0060626568619ac94d750eb4c0888d92ca5775a6bd957fef9847843835b77",
+				"dweb:/ipfs/QmXJer3D9sTkEj3mmUDqpdqfGpe46Rn9G22nGrfZdP2wAT"
+			]
+		},
+		"src/interfaces/IEntryPoint.sol": {
+			"keccak256": "0x3b0423737e810dd886183ed32cfed9b45edd315f5fb3e1076fc19f86791adc64",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c43081efaa2eda581b6249053281bb58cb0c4eeb6bf87efc55d95daaec2fc931",
+				"dweb:/ipfs/QmXRN2JnyzWZNeFMHauTnDuc7jhxGY4ZkY37HTtjXKdC87"
+			]
+		},
+		"src/interfaces/INonceManager.sol": {
+			"keccak256": "0xee493ae200b8c675bdc0da66f7ac6bb883ecea33672d7d0a95526b9eecdedf87",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://979784a0333ac4ef3cc53ab9323a4b7fa574d929bd511f0eed03d3b0370db22d",
+				"dweb:/ipfs/QmeiciN5gs4upM6vfKvrRxWiDBUzMU4uJQRRkJajhim9gX"
+			]
+		},
+		"src/interfaces/ISenderCreator.sol": {
+			"keccak256": "0x677f651d733162b80d1af7901e4f36469e362737a8353d1d0cc7bb94489e4ba4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d6905a80acd70b444ea230b5b582164cb99aaae518bf72c88f8292df31615570",
+				"dweb:/ipfs/QmfTKTPwJYf9pmA3T5PE5cCG8GLLDrLaq3jQqMP3pVRL6w"
+			]
+		},
+		"src/interfaces/IStakeManager.sol": {
+			"keccak256": "0xe48e904fcac02295aad07fbfa1c1d449a74bf44c04e432afef6f34d1ef726ae0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5882b635ea6f5da9ae411485975888431de571f85d4baf35e3db1a83c1f14b85",
+				"dweb:/ipfs/QmVSTX36Byr48y8JBmz1hCTGAAyQdTYegQbsSqdRNuSQYz"
+			]
+		},
+		"src/interfaces/PackedUserOperation.sol": {
+			"keccak256": "0xb15188e25e45fe73097e279675b6c0beccbd4133ead2260f8f0c4ba840046800",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5d14c1edd1e95d37c26e54bb34305e2cc9dedc46eb75ec91caeb777678e8ea79",
+				"dweb:/ipfs/QmcCL2syVtV7W3XvYx3si84MPkbEJKqEN8hjFNhAPoDDhK"
+			]
+		},
+		"src/samples/callback/TokenCallbackHandler.sol": {
+			"keccak256": "0xd91a14caef87567866880b0f01955dfa50b4bc593dcecfcb38be41d98e6b9662",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7f20ba13333688a9001c5426db032e8251bb1c76087b654e5421f478f17fd26b",
+				"dweb:/ipfs/QmXFbor8LktEfWcRn83F1j1T8Sc319PM24KYR9fyTaS43x"
+			]
+		},
+		"src/utils/Exec.sol": {
+			"keccak256": "0x9c724ee22011193ea7f92d3c3c467ee6aa27139d3ddc225c7f1254d241e6ccdd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://96cc246fe944a212cbb9ba82065b2d380ec80954fcdb5d8d982b476bd5b72868",
+				"dweb:/ipfs/QmZ25eFixEhukbfWGz5TBjsp7YohxUqD5i2rxhaghfvHt8"
+			]
+		}
+	},
+	"version": 1
+}

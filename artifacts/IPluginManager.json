@@ -1,0 +1,153 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"installPlugin(address,bytes32,bytes,bytes21[])": "c5f0e8d1",
+			"uninstallPlugin(address,bytes,bytes)": "c1a221f3"
+		}
+	},
+	"abi": [
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "plugin",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "bytes32",
+					"name": "manifestHash",
+					"type": "bytes32"
+				},
+				{
+					"indexed": false,
+					"internalType": "FunctionReference[]",
+					"name": "dependencies",
+					"type": "bytes21[]"
+				}
+			],
+			"name": "PluginInstalled",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "plugin",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "bool",
+					"name": "onUninstallSucceeded",
+					"type": "bool"
+				}
+			],
+			"name": "PluginUninstalled",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "plugin",
+					"type": "address"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "manifestHash",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bytes",
+					"name": "pluginInstallData",
+					"type": "bytes"
+				},
+				{
+					"internalType": "FunctionReference[]",
+					"name": "dependencies",
+					"type": "bytes21[]"
+				}
+			],
+			"name": "installPlugin",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "plugin",
+					"type": "address"
+				},
+				{
+					"internalType": "bytes",
+					"name": "config",
+					"type": "bytes"
+				},
+				{
+					"internalType": "bytes",
+					"name": "pluginUninstallData",
+					"type": "bytes"
+				}
+			],
+			"name": "uninstallPlugin",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

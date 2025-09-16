@@ -1,0 +1,7 @@
+{
+  "defaultConfig": "viem",
+  "customConfig": {
+    "baseConfiguration": "default",
+    "dependencies": []
+  }
+}

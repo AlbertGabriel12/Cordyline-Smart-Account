@@ -1,0 +1,170 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "manifestHash",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "FunctionReference[]",
+						"name": "dependencies",
+						"type": "bytes21[]"
+					}
+				],
+				"name": "PluginInstalled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "bool",
+						"name": "onUninstallSucceeded",
+						"type": "bool"
+					}
+				],
+				"name": "PluginUninstalled",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "manifestHash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes",
+						"name": "pluginInstallData",
+						"type": "bytes"
+					},
+					{
+						"internalType": "FunctionReference[]",
+						"name": "dependencies",
+						"type": "bytes21[]"
+					}
+				],
+				"name": "installPlugin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "config",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "pluginUninstallData",
+						"type": "bytes"
+					}
+				],
+				"name": "uninstallPlugin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"installPlugin(address,bytes32,bytes,bytes21[])": {
+					"params": {
+						"dependencies": "The dependencies of the plugin, as described in the manifest. Each FunctionReference MUST be composed of an installed plugin's address and a function ID of its validation function.",
+						"manifestHash": "The hash of the plugin manifest.",
+						"plugin": "The plugin to install.",
+						"pluginInstallData": "Optional data to be decoded and used by the plugin to setup initial plugin data for the modular account."
+					}
+				},
+				"uninstallPlugin(address,bytes,bytes)": {
+					"details": "Uninstalling owner plugins outside of a replace operation via executeBatch risks losing the account!",
+					"params": {
+						"config": "An optional, implementation-specific field that accounts may use to ensure consistency guarantees.",
+						"plugin": "The plugin to uninstall.",
+						"pluginUninstallData": "Optional data to be decoded and used by the plugin to clear plugin data for the modular account."
+					}
+				}
+			},
+			"title": "Plugin Manager Interface",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"installPlugin(address,bytes32,bytes,bytes21[])": {
+					"notice": "Install a plugin to the modular account."
+				},
+				"uninstallPlugin(address,bytes,bytes)": {
+					"notice": "Uninstall a plugin from the modular account."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/interfaces/IPluginManager.sol": "IPluginManager"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":@openzeppelin/=src/external/openzeppelin-contracts/",
+			":ds-test/=lib/forge-std/lib/ds-test/src/",
+			":forge-std/=lib/forge-std/src/"
+		]
+	},
+	"sources": {
+		"src/interfaces/IPluginManager.sol": {
+			"keccak256": "0x496ea9554c50d13982f1ba0b95999fd69f08f8d3704c8497ccb38b51f8d7c290",
+			"license": "CC0-1.0",
+			"urls": [
+				"bzz-raw://65afaa6f37715600e2f1c92bf83d477fb3cfccd6b4ebd575082d4ea3b3fd053b",
+				"dweb:/ipfs/QmYUieL9MKQzNDrkkPewmATGTqAeQhzGZBd3Q5zBhd9KFD"
+			]
+		}
+	},
+	"version": 1
+}

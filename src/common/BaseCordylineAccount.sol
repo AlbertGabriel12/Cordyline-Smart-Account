@@ -39,7 +39,7 @@ abstract contract BaseCordylineAccount is BaseAccount, TokenCallbackHandler, UUP
     /// @param dest The target of the transaction.
     /// @param value The amount of wei sent in the transaction.
     /// @param func The transaction's calldata.
-    function execute(address dest, uint256 value, bytes calldata func) external virtual onlyAuthorized {
+    function execute(address dest, uint256 value, bytes calldata func) external override virtual onlyAuthorized {
         _call(dest, value, func);
     }
 

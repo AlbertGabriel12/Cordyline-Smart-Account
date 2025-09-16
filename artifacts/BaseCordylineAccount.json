@@ -1,0 +1,686 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"addDeposit()": "4a58db19",
+			"eip712Domain()": "84b0196e",
+			"entryPoint()": "b0d691fe",
+			"execute(address,uint256,bytes)": "b61d27f6",
+			"executeBatch((address,uint256,bytes)[])": "34fcd5be",
+			"executeBatch(address[],bytes[])": "18dfb3c7",
+			"executeBatch(address[],uint256[],bytes[])": "47e1da2a",
+			"getDeposit()": "c399ec88",
+			"getMessageHash(bytes)": "0a1028c4",
+			"getNonce()": "d087d288",
+			"isValidSignature(bytes32,bytes)": "1626ba7e",
+			"onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)": "bc197c81",
+			"onERC1155Received(address,address,uint256,uint256,bytes)": "f23a6e61",
+			"onERC721Received(address,address,uint256,bytes)": "150b7a02",
+			"performCreate(uint256,bytes)": "4c8c9ea1",
+			"performCreate2(uint256,bytes,bytes32)": "4847be6f",
+			"proxiableUUID()": "52d1902d",
+			"supportsInterface(bytes4)": "01ffc9a7",
+			"upgradeToAndCall(address,bytes)": "4f1ef286",
+			"validateUserOp((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes),bytes32,uint256)": "19822f7c",
+			"withdrawDepositTo(address,uint256)": "4d44560d"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [],
+			"name": "ArrayLengthMismatch",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "CreateFailed",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "error",
+					"type": "bytes"
+				}
+			],
+			"name": "ExecuteError",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "InvalidSignatureType",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "caller",
+					"type": "address"
+				}
+			],
+			"name": "NotAuthorized",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "UnauthorizedCallContext",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "UpgradeFailed",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "ZeroAddressNotAllowed",
+			"type": "error"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "implementation",
+					"type": "address"
+				}
+			],
+			"name": "Upgraded",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "addDeposit",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "eip712Domain",
+			"outputs": [
+				{
+					"internalType": "bytes1",
+					"name": "fields",
+					"type": "bytes1"
+				},
+				{
+					"internalType": "string",
+					"name": "name",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "version",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "chainId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "verifyingContract",
+					"type": "address"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "salt",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "extensions",
+					"type": "uint256[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "entryPoint",
+			"outputs": [
+				{
+					"internalType": "contract IEntryPoint",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "dest",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "value",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "func",
+					"type": "bytes"
+				}
+			],
+			"name": "execute",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address[]",
+					"name": "dest",
+					"type": "address[]"
+				},
+				{
+					"internalType": "bytes[]",
+					"name": "func",
+					"type": "bytes[]"
+				}
+			],
+			"name": "executeBatch",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "target",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "value",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes",
+							"name": "data",
+							"type": "bytes"
+						}
+					],
+					"internalType": "struct BaseAccount.Call[]",
+					"name": "calls",
+					"type": "tuple[]"
+				}
+			],
+			"name": "executeBatch",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address[]",
+					"name": "dest",
+					"type": "address[]"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "value",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "bytes[]",
+					"name": "func",
+					"type": "bytes[]"
+				}
+			],
+			"name": "executeBatch",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getDeposit",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes",
+					"name": "message",
+					"type": "bytes"
+				}
+			],
+			"name": "getMessageHash",
+			"outputs": [
+				{
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getNonce",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "hash",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bytes",
+					"name": "signature",
+					"type": "bytes"
+				}
+			],
+			"name": "isValidSignature",
+			"outputs": [
+				{
+					"internalType": "bytes4",
+					"name": "",
+					"type": "bytes4"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "bytes",
+					"name": "",
+					"type": "bytes"
+				}
+			],
+			"name": "onERC1155BatchReceived",
+			"outputs": [
+				{
+					"internalType": "bytes4",
+					"name": "",
+					"type": "bytes4"
+				}
+			],
+			"stateMutability": "pure",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "",
+					"type": "bytes"
+				}
+			],
+			"name": "onERC1155Received",
+			"outputs": [
+				{
+					"internalType": "bytes4",
+					"name": "",
+					"type": "bytes4"
+				}
+			],
+			"stateMutability": "pure",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "",
+					"type": "bytes"
+				}
+			],
+			"name": "onERC721Received",
+			"outputs": [
+				{
+					"internalType": "bytes4",
+					"name": "",
+					"type": "bytes4"
+				}
+			],
+			"stateMutability": "pure",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "value",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "initCode",
+					"type": "bytes"
+				}
+			],
+			"name": "performCreate",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "createdAddr",
+					"type": "address"
+				}
+			],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "value",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "initCode",
+					"type": "bytes"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "salt",
+					"type": "bytes32"
+				}
+			],
+			"name": "performCreate2",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "createdAddr",
+					"type": "address"
+				}
+			],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "proxiableUUID",
+			"outputs": [
+				{
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes4",
+					"name": "interfaceId",
+					"type": "bytes4"
+				}
+			],
+			"name": "supportsInterface",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "newImplementation",
+					"type": "address"
+				},
+				{
+					"internalType": "bytes",
+					"name": "data",
+					"type": "bytes"
+				}
+			],
+			"name": "upgradeToAndCall",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "sender",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "nonce",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes",
+							"name": "initCode",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes",
+							"name": "callData",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "accountGasLimits",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "uint256",
+							"name": "preVerificationGas",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "gasFees",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "bytes",
+							"name": "paymasterAndData",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes",
+							"name": "signature",
+							"type": "bytes"
+						}
+					],
+					"internalType": "struct PackedUserOperation",
+					"name": "userOp",
+					"type": "tuple"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "userOpHash",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "missingAccountFunds",
+					"type": "uint256"
+				}
+			],
+			"name": "validateUserOp",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "validationData",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address payable",
+					"name": "withdrawAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "withdrawDepositTo",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"stateMutability": "payable",
+			"type": "receive"
+		}
+	]
+}

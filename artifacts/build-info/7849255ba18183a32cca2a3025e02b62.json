@@ -1,0 +1,768 @@
+{
+	"id": "7849255ba18183a32cca2a3025e02b62",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.30",
+	"solcLongVersion": "0.8.30+commit.73712a01",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"src/interfaces/IPluginManager.sol": {
+				"content": "// This work is marked with CC0 1.0 Universal.\n//\n// SPDX-License-Identifier: CC0-1.0\n//\n// To view a copy of this license, visit http://creativecommons.org/publicdomain/zero/1.0\n\npragma solidity ^0.8.22;\n\n// Treats the first 20 bytes as an address, and the last byte as a function identifier.\ntype FunctionReference is bytes21;\n\n/// @title Plugin Manager Interface\ninterface IPluginManager {\n    event PluginInstalled(address indexed plugin, bytes32 manifestHash, FunctionReference[] dependencies);\n    event PluginUninstalled(address indexed plugin, bool indexed onUninstallSucceeded);\n\n    /// @notice Install a plugin to the modular account.\n    /// @param plugin The plugin to install.\n    /// @param manifestHash The hash of the plugin manifest.\n    /// @param pluginInstallData Optional data to be decoded and used by the plugin to setup initial plugin data\n    /// for the modular account.\n    /// @param dependencies The dependencies of the plugin, as described in the manifest. Each FunctionReference\n    /// MUST be composed of an installed plugin's address and a function ID of its validation function.\n    function installPlugin(\n        address plugin,\n        bytes32 manifestHash,\n        bytes calldata pluginInstallData,\n        FunctionReference[] calldata dependencies\n    ) external;\n\n    /// @notice Uninstall a plugin from the modular account.\n    /// @dev Uninstalling owner plugins outside of a replace operation via executeBatch risks losing the account!\n    /// @param plugin The plugin to uninstall.\n    /// @param config An optional, implementation-specific field that accounts may use to ensure consistency\n    /// guarantees.\n    /// @param pluginUninstallData Optional data to be decoded and used by the plugin to clear plugin data for the\n    /// modular account.\n    function uninstallPlugin(address plugin, bytes calldata config, bytes calldata pluginUninstallData) external;\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": [
+				"ds-test/=lib/forge-std/lib/ds-test/src/",
+				"forge-std/=lib/forge-std/src/",
+				"@openzeppelin/=src/external/openzeppelin-contracts/"
+			]
+		}
+	},
+	"output": {
+		"contracts": {
+			"src/interfaces/IPluginManager.sol": {
+				"IPluginManager": {
+					"abi": [
+						{
+							"anonymous": false,
+							"inputs": [
+								{
+									"indexed": true,
+									"internalType": "address",
+									"name": "plugin",
+									"type": "address"
+								},
+								{
+									"indexed": false,
+									"internalType": "bytes32",
+									"name": "manifestHash",
+									"type": "bytes32"
+								},
+								{
+									"indexed": false,
+									"internalType": "FunctionReference[]",
+									"name": "dependencies",
+									"type": "bytes21[]"
+								}
+							],
+							"name": "PluginInstalled",
+							"type": "event"
+						},
+						{
+							"anonymous": false,
+							"inputs": [
+								{
+									"indexed": true,
+									"internalType": "address",
+									"name": "plugin",
+									"type": "address"
+								},
+								{
+									"indexed": true,
+									"internalType": "bool",
+									"name": "onUninstallSucceeded",
+									"type": "bool"
+								}
+							],
+							"name": "PluginUninstalled",
+							"type": "event"
+						},
+						{
+							"inputs": [
+								{
+									"internalType": "address",
+									"name": "plugin",
+									"type": "address"
+								},
+								{
+									"internalType": "bytes32",
+									"name": "manifestHash",
+									"type": "bytes32"
+								},
+								{
+									"internalType": "bytes",
+									"name": "pluginInstallData",
+									"type": "bytes"
+								},
+								{
+									"internalType": "FunctionReference[]",
+									"name": "dependencies",
+									"type": "bytes21[]"
+								}
+							],
+							"name": "installPlugin",
+							"outputs": [],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						},
+						{
+							"inputs": [
+								{
+									"internalType": "address",
+									"name": "plugin",
+									"type": "address"
+								},
+								{
+									"internalType": "bytes",
+									"name": "config",
+									"type": "bytes"
+								},
+								{
+									"internalType": "bytes",
+									"name": "pluginUninstallData",
+									"type": "bytes"
+								}
+							],
+							"name": "uninstallPlugin",
+							"outputs": [],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						}
+					],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {
+							"installPlugin(address,bytes32,bytes,bytes21[])": {
+								"params": {
+									"dependencies": "The dependencies of the plugin, as described in the manifest. Each FunctionReference MUST be composed of an installed plugin's address and a function ID of its validation function.",
+									"manifestHash": "The hash of the plugin manifest.",
+									"plugin": "The plugin to install.",
+									"pluginInstallData": "Optional data to be decoded and used by the plugin to setup initial plugin data for the modular account."
+								}
+							},
+							"uninstallPlugin(address,bytes,bytes)": {
+								"details": "Uninstalling owner plugins outside of a replace operation via executeBatch risks losing the account!",
+								"params": {
+									"config": "An optional, implementation-specific field that accounts may use to ensure consistency guarantees.",
+									"plugin": "The plugin to uninstall.",
+									"pluginUninstallData": "Optional data to be decoded and used by the plugin to clear plugin data for the modular account."
+								}
+							}
+						},
+						"title": "Plugin Manager Interface",
+						"version": 1
+					},
+					"evm": {
+						"assembly": "",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"gasEstimates": null,
+						"legacyAssembly": null,
+						"methodIdentifiers": {
+							"installPlugin(address,bytes32,bytes,bytes21[])": "c5f0e8d1",
+							"uninstallPlugin(address,bytes,bytes)": "c1a221f3"
+						}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.30+commit.73712a01\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"plugin\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"manifestHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"FunctionReference[]\",\"name\":\"dependencies\",\"type\":\"bytes21[]\"}],\"name\":\"PluginInstalled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"plugin\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bool\",\"name\":\"onUninstallSucceeded\",\"type\":\"bool\"}],\"name\":\"PluginUninstalled\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"plugin\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"manifestHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"pluginInstallData\",\"type\":\"bytes\"},{\"internalType\":\"FunctionReference[]\",\"name\":\"dependencies\",\"type\":\"bytes21[]\"}],\"name\":\"installPlugin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"plugin\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"config\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"pluginUninstallData\",\"type\":\"bytes\"}],\"name\":\"uninstallPlugin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"installPlugin(address,bytes32,bytes,bytes21[])\":{\"params\":{\"dependencies\":\"The dependencies of the plugin, as described in the manifest. Each FunctionReference MUST be composed of an installed plugin's address and a function ID of its validation function.\",\"manifestHash\":\"The hash of the plugin manifest.\",\"plugin\":\"The plugin to install.\",\"pluginInstallData\":\"Optional data to be decoded and used by the plugin to setup initial plugin data for the modular account.\"}},\"uninstallPlugin(address,bytes,bytes)\":{\"details\":\"Uninstalling owner plugins outside of a replace operation via executeBatch risks losing the account!\",\"params\":{\"config\":\"An optional, implementation-specific field that accounts may use to ensure consistency guarantees.\",\"plugin\":\"The plugin to uninstall.\",\"pluginUninstallData\":\"Optional data to be decoded and used by the plugin to clear plugin data for the modular account.\"}}},\"title\":\"Plugin Manager Interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"installPlugin(address,bytes32,bytes,bytes21[])\":{\"notice\":\"Install a plugin to the modular account.\"},\"uninstallPlugin(address,bytes,bytes)\":{\"notice\":\"Uninstall a plugin from the modular account.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/IPluginManager.sol\":\"IPluginManager\"},\"evmVersion\":\"prague\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[\":@openzeppelin/=src/external/openzeppelin-contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"src/interfaces/IPluginManager.sol\":{\"keccak256\":\"0x496ea9554c50d13982f1ba0b95999fd69f08f8d3704c8497ccb38b51f8d7c290\",\"license\":\"CC0-1.0\",\"urls\":[\"bzz-raw://65afaa6f37715600e2f1c92bf83d477fb3cfccd6b4ebd575082d4ea3b3fd053b\",\"dweb:/ipfs/QmYUieL9MKQzNDrkkPewmATGTqAeQhzGZBd3Q5zBhd9KFD\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {
+							"installPlugin(address,bytes32,bytes,bytes21[])": {
+								"notice": "Install a plugin to the modular account."
+							},
+							"uninstallPlugin(address,bytes,bytes)": {
+								"notice": "Uninstall a plugin from the modular account."
+							}
+						},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"src/interfaces/IPluginManager.sol": {
+				"ast": {
+					"absolutePath": "src/interfaces/IPluginManager.sol",
+					"exportedSymbols": {
+						"FunctionReference": [
+							3
+						],
+						"IPluginManager": [
+							45
+						]
+					},
+					"id": 46,
+					"license": "CC0-1.0",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".22"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "180:24:0"
+						},
+						{
+							"canonicalName": "FunctionReference",
+							"id": 3,
+							"name": "FunctionReference",
+							"nameLocation": "299:17:0",
+							"nodeType": "UserDefinedValueTypeDefinition",
+							"src": "294:34:0",
+							"underlyingType": {
+								"id": 2,
+								"name": "bytes21",
+								"nodeType": "ElementaryTypeName",
+								"src": "320:7:0",
+								"typeDescriptions": {
+									"typeIdentifier": "t_bytes21",
+									"typeString": "bytes21"
+								}
+							}
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "IPluginManager",
+							"contractDependencies": [],
+							"contractKind": "interface",
+							"documentation": {
+								"id": 4,
+								"nodeType": "StructuredDocumentation",
+								"src": "330:36:0",
+								"text": "@title Plugin Manager Interface"
+							},
+							"fullyImplemented": false,
+							"id": 45,
+							"linearizedBaseContracts": [
+								45
+							],
+							"name": "IPluginManager",
+							"nameLocation": "376:14:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"anonymous": false,
+									"eventSelector": "32d6790d50f8334621a74f0f62e534ef3f4f98133225305074e99e7ce4d8917f",
+									"id": 14,
+									"name": "PluginInstalled",
+									"nameLocation": "403:15:0",
+									"nodeType": "EventDefinition",
+									"parameters": {
+										"id": 13,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 6,
+												"indexed": true,
+												"mutability": "mutable",
+												"name": "plugin",
+												"nameLocation": "435:6:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 14,
+												"src": "419:22:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 5,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "419:7:0",
+													"stateMutability": "nonpayable",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 8,
+												"indexed": false,
+												"mutability": "mutable",
+												"name": "manifestHash",
+												"nameLocation": "451:12:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 14,
+												"src": "443:20:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes32",
+													"typeString": "bytes32"
+												},
+												"typeName": {
+													"id": 7,
+													"name": "bytes32",
+													"nodeType": "ElementaryTypeName",
+													"src": "443:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes32",
+														"typeString": "bytes32"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 12,
+												"indexed": false,
+												"mutability": "mutable",
+												"name": "dependencies",
+												"nameLocation": "485:12:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 14,
+												"src": "465:32:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_array$_t_userDefinedValueType$_FunctionReference_$3_$dyn_memory_ptr",
+													"typeString": "FunctionReference[]"
+												},
+												"typeName": {
+													"baseType": {
+														"id": 10,
+														"nodeType": "UserDefinedTypeName",
+														"pathNode": {
+															"id": 9,
+															"name": "FunctionReference",
+															"nameLocations": [
+																"465:17:0"
+															],
+															"nodeType": "IdentifierPath",
+															"referencedDeclaration": 3,
+															"src": "465:17:0"
+														},
+														"referencedDeclaration": 3,
+														"src": "465:17:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_userDefinedValueType$_FunctionReference_$3",
+															"typeString": "FunctionReference"
+														}
+													},
+													"id": 11,
+													"nodeType": "ArrayTypeName",
+													"src": "465:19:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_array$_t_userDefinedValueType$_FunctionReference_$3_$dyn_storage_ptr",
+														"typeString": "FunctionReference[]"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "418:80:0"
+									},
+									"src": "397:102:0"
+								},
+								{
+									"anonymous": false,
+									"eventSelector": "eb7551bad8fd10038dee62a958c2b6f45624499dc800ff8936bb0a4904bdd2fe",
+									"id": 20,
+									"name": "PluginUninstalled",
+									"nameLocation": "510:17:0",
+									"nodeType": "EventDefinition",
+									"parameters": {
+										"id": 19,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 16,
+												"indexed": true,
+												"mutability": "mutable",
+												"name": "plugin",
+												"nameLocation": "544:6:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 20,
+												"src": "528:22:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 15,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "528:7:0",
+													"stateMutability": "nonpayable",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 18,
+												"indexed": true,
+												"mutability": "mutable",
+												"name": "onUninstallSucceeded",
+												"nameLocation": "565:20:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 20,
+												"src": "552:33:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												},
+												"typeName": {
+													"id": 17,
+													"name": "bool",
+													"nodeType": "ElementaryTypeName",
+													"src": "552:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bool",
+														"typeString": "bool"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "527:59:0"
+									},
+									"src": "504:83:0"
+								},
+								{
+									"documentation": {
+										"id": 21,
+										"nodeType": "StructuredDocumentation",
+										"src": "593:521:0",
+										"text": "@notice Install a plugin to the modular account.\n @param plugin The plugin to install.\n @param manifestHash The hash of the plugin manifest.\n @param pluginInstallData Optional data to be decoded and used by the plugin to setup initial plugin data\n for the modular account.\n @param dependencies The dependencies of the plugin, as described in the manifest. Each FunctionReference\n MUST be composed of an installed plugin's address and a function ID of its validation function."
+									},
+									"functionSelector": "c5f0e8d1",
+									"id": 34,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "installPlugin",
+									"nameLocation": "1128:13:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 32,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 23,
+												"mutability": "mutable",
+												"name": "plugin",
+												"nameLocation": "1159:6:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 34,
+												"src": "1151:14:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 22,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "1151:7:0",
+													"stateMutability": "nonpayable",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 25,
+												"mutability": "mutable",
+												"name": "manifestHash",
+												"nameLocation": "1183:12:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 34,
+												"src": "1175:20:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes32",
+													"typeString": "bytes32"
+												},
+												"typeName": {
+													"id": 24,
+													"name": "bytes32",
+													"nodeType": "ElementaryTypeName",
+													"src": "1175:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes32",
+														"typeString": "bytes32"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 27,
+												"mutability": "mutable",
+												"name": "pluginInstallData",
+												"nameLocation": "1220:17:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 34,
+												"src": "1205:32:0",
+												"stateVariable": false,
+												"storageLocation": "calldata",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes_calldata_ptr",
+													"typeString": "bytes"
+												},
+												"typeName": {
+													"id": 26,
+													"name": "bytes",
+													"nodeType": "ElementaryTypeName",
+													"src": "1205:5:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes_storage_ptr",
+														"typeString": "bytes"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 31,
+												"mutability": "mutable",
+												"name": "dependencies",
+												"nameLocation": "1276:12:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 34,
+												"src": "1247:41:0",
+												"stateVariable": false,
+												"storageLocation": "calldata",
+												"typeDescriptions": {
+													"typeIdentifier": "t_array$_t_userDefinedValueType$_FunctionReference_$3_$dyn_calldata_ptr",
+													"typeString": "FunctionReference[]"
+												},
+												"typeName": {
+													"baseType": {
+														"id": 29,
+														"nodeType": "UserDefinedTypeName",
+														"pathNode": {
+															"id": 28,
+															"name": "FunctionReference",
+															"nameLocations": [
+																"1247:17:0"
+															],
+															"nodeType": "IdentifierPath",
+															"referencedDeclaration": 3,
+															"src": "1247:17:0"
+														},
+														"referencedDeclaration": 3,
+														"src": "1247:17:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_userDefinedValueType$_FunctionReference_$3",
+															"typeString": "FunctionReference"
+														}
+													},
+													"id": 30,
+													"nodeType": "ArrayTypeName",
+													"src": "1247:19:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_array$_t_userDefinedValueType$_FunctionReference_$3_$dyn_storage_ptr",
+														"typeString": "FunctionReference[]"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "1141:153:0"
+									},
+									"returnParameters": {
+										"id": 33,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "1303:0:0"
+									},
+									"scope": 45,
+									"src": "1119:185:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "external"
+								},
+								{
+									"documentation": {
+										"id": 35,
+										"nodeType": "StructuredDocumentation",
+										"src": "1310:486:0",
+										"text": "@notice Uninstall a plugin from the modular account.\n @dev Uninstalling owner plugins outside of a replace operation via executeBatch risks losing the account!\n @param plugin The plugin to uninstall.\n @param config An optional, implementation-specific field that accounts may use to ensure consistency\n guarantees.\n @param pluginUninstallData Optional data to be decoded and used by the plugin to clear plugin data for the\n modular account."
+									},
+									"functionSelector": "c1a221f3",
+									"id": 44,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "uninstallPlugin",
+									"nameLocation": "1810:15:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 42,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 37,
+												"mutability": "mutable",
+												"name": "plugin",
+												"nameLocation": "1834:6:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 44,
+												"src": "1826:14:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 36,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "1826:7:0",
+													"stateMutability": "nonpayable",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 39,
+												"mutability": "mutable",
+												"name": "config",
+												"nameLocation": "1857:6:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 44,
+												"src": "1842:21:0",
+												"stateVariable": false,
+												"storageLocation": "calldata",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes_calldata_ptr",
+													"typeString": "bytes"
+												},
+												"typeName": {
+													"id": 38,
+													"name": "bytes",
+													"nodeType": "ElementaryTypeName",
+													"src": "1842:5:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes_storage_ptr",
+														"typeString": "bytes"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 41,
+												"mutability": "mutable",
+												"name": "pluginUninstallData",
+												"nameLocation": "1880:19:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 44,
+												"src": "1865:34:0",
+												"stateVariable": false,
+												"storageLocation": "calldata",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes_calldata_ptr",
+													"typeString": "bytes"
+												},
+												"typeName": {
+													"id": 40,
+													"name": "bytes",
+													"nodeType": "ElementaryTypeName",
+													"src": "1865:5:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes_storage_ptr",
+														"typeString": "bytes"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "1825:75:0"
+									},
+									"returnParameters": {
+										"id": 43,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "1909:0:0"
+									},
+									"scope": 45,
+									"src": "1801:109:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "external"
+								}
+							],
+							"scope": 46,
+							"src": "366:1546:0",
+							"usedErrors": [],
+							"usedEvents": [
+								14,
+								20
+							]
+						}
+					],
+					"src": "180:1732:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

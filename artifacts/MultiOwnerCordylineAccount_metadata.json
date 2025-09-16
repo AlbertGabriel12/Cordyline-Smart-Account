@@ -1,0 +1,1336 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IEntryPoint",
+						"name": "entryPoint_",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "ArrayLengthMismatch",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "CreateFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ECDSAInvalidSignature",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"name": "ECDSAInvalidSignatureLength",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "ECDSAInvalidSignatureS",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "EmptyOwnersNotAllowed",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "error",
+						"type": "bytes"
+					}
+				],
+				"name": "ExecuteError",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidInitialization",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "InvalidOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidSignatureType",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					}
+				],
+				"name": "NotAuthorized",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotInitializing",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "OwnerDoesNotExist",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "UnauthorizedCallContext",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "UpgradeFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZeroAddressNotAllowed",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract IEntryPoint",
+						"name": "entryPoint",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address[]",
+						"name": "owners",
+						"type": "address[]"
+					}
+				],
+				"name": "CordylineAccountInitialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "version",
+						"type": "uint64"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address[]",
+						"name": "addedOwners",
+						"type": "address[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "address[]",
+						"name": "removedOwners",
+						"type": "address[]"
+					}
+				],
+				"name": "OwnersUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "Upgraded",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "addDeposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "eip712Domain",
+				"outputs": [
+					{
+						"internalType": "bytes1",
+						"name": "fields",
+						"type": "bytes1"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "version",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "chainId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "verifyingContract",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "salt",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "extensions",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "entryPoint",
+				"outputs": [
+					{
+						"internalType": "contract IEntryPoint",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "dest",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "func",
+						"type": "bytes"
+					}
+				],
+				"name": "execute",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "dest",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "func",
+						"type": "bytes[]"
+					}
+				],
+				"name": "executeBatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "target",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct BaseAccount.Call[]",
+						"name": "calls",
+						"type": "tuple[]"
+					}
+				],
+				"name": "executeBatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "dest",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "value",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "func",
+						"type": "bytes[]"
+					}
+				],
+				"name": "executeBatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getDeposit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "message",
+						"type": "bytes"
+					}
+				],
+				"name": "getMessageHash",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNonce",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "owners_",
+						"type": "address[]"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes",
+						"name": "signature",
+						"type": "bytes"
+					}
+				],
+				"name": "isValidSignature",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC1155BatchReceived",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC1155Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC721Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owners",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "initCode",
+						"type": "bytes"
+					}
+				],
+				"name": "performCreate",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "createdAddr",
+						"type": "address"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "initCode",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "salt",
+						"type": "bytes32"
+					}
+				],
+				"name": "performCreate2",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "createdAddr",
+						"type": "address"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "proxiableUUID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "ownersToAdd",
+						"type": "address[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "ownersToRemove",
+						"type": "address[]"
+					}
+				],
+				"name": "updateOwners",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "upgradeToAndCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "sender",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nonce",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "initCode",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "accountGasLimits",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "uint256",
+								"name": "preVerificationGas",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "gasFees",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "bytes",
+								"name": "paymasterAndData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "signature",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct PackedUserOperation",
+						"name": "userOp",
+						"type": "tuple"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "userOpHash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "missingAccountFunds",
+						"type": "uint256"
+					}
+				],
+				"name": "validateUserOp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "validationData",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "withdrawAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawDepositTo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"details": "Like CordylineAccount, but multiple owners are supported. The account is initialized with a list of owners, and the `updateOwners` method can be used to add or remove owners.",
+			"errors": {
+				"ECDSAInvalidSignature()": [
+					{
+						"details": "The signature derives the `address(0)`."
+					}
+				],
+				"ECDSAInvalidSignatureLength(uint256)": [
+					{
+						"details": "The signature has an invalid length."
+					}
+				],
+				"ECDSAInvalidSignatureS(bytes32)": [
+					{
+						"details": "The signature has an S value that is in the upper half order."
+					}
+				],
+				"EmptyOwnersNotAllowed()": [
+					{
+						"details": "The account is not allowed to have 0 owners."
+					}
+				],
+				"InvalidInitialization()": [
+					{
+						"details": "The contract is already initialized."
+					}
+				],
+				"InvalidOwner(address)": [
+					{
+						"details": "The owner to be added is not valid (e.g., `address(0)`, the account itself, or a current owner)."
+					}
+				],
+				"NotInitializing()": [
+					{
+						"details": "The contract is not initializing."
+					}
+				],
+				"OwnerDoesNotExist(address)": [
+					{
+						"details": "The owner to be removed does not exist."
+					}
+				],
+				"UnauthorizedCallContext()": [
+					{
+						"details": "The call is from an unauthorized call context."
+					}
+				],
+				"UpgradeFailed()": [
+					{
+						"details": "The upgrade failed."
+					}
+				]
+			},
+			"events": {
+				"CordylineAccountInitialized(address,address[])": {
+					"params": {
+						"entryPoint": "The entry point.",
+						"owners": "The initial owners."
+					}
+				},
+				"Initialized(uint64)": {
+					"details": "Triggered when the contract has been initialized or reinitialized."
+				},
+				"OwnersUpdated(address[],address[])": {
+					"params": {
+						"addedOwners": "The address array of added owners.",
+						"removedOwners": "The address array of removed owners."
+					}
+				},
+				"Upgraded(address)": {
+					"details": "Emitted when the proxy's implementation is upgraded."
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"eip712Domain()": {
+					"details": "See: https://eips.ethereum.org/EIPS/eip-5267"
+				},
+				"execute(address,uint256,bytes)": {
+					"params": {
+						"dest": "The target of the transaction.",
+						"func": "The transaction's calldata.",
+						"value": "The amount of wei sent in the transaction."
+					}
+				},
+				"executeBatch(address[],bytes[])": {
+					"params": {
+						"dest": "An array of the targets for each transaction in the sequence.",
+						"func": "An array of calldata for each transaction in the sequence. Must be the same length as `dest`, with corresponding elements representing the parameters for each transaction."
+					}
+				},
+				"executeBatch(address[],uint256[],bytes[])": {
+					"params": {
+						"dest": "An array of the targets for each transaction in the sequence.",
+						"func": "An array of calldata for each transaction in the sequence. Must be the same length as `dest`, with corresponding elements representing the parameters for each transaction.",
+						"value": "An array of value for each transaction in the sequence."
+					}
+				},
+				"getDeposit()": {
+					"returns": {
+						"_0": "The current account deposit."
+					}
+				},
+				"getMessageHash(bytes)": {
+					"params": {
+						"message": "Message that should be hashed."
+					},
+					"returns": {
+						"_0": "The replay-safe message hash."
+					}
+				},
+				"initialize(address[])": {
+					"details": "The `_ENTRY_POINT` member is immutable, to reduce gas consumption. To update the entry point address, a new implementation of CordylineAccount must be deployed with the new entry point address, and then `upgradeToAndCall` must be called to upgrade the implementation.",
+					"params": {
+						"owners_": "The initial owners of the account."
+					}
+				},
+				"isValidSignature(bytes32,bytes)": {
+					"details": "The signature is valid if it is signed by the owner's private key (if the owner is an EOA) or if it is a valid ERC-1271 signature from the owner (if the owner is a contract).",
+					"params": {
+						"hash": "Hash of the data to be signed.",
+						"signature": "Signature byte array associated with the data."
+					},
+					"returns": {
+						"_0": "Magic value `0x1626ba7e` if validation succeeded, else `0xffffffff`."
+					}
+				},
+				"owners()": {
+					"returns": {
+						"_0": "The array of owner addresses."
+					}
+				},
+				"performCreate(uint256,bytes)": {
+					"details": "Assembly procedure:     1. Load the free memory pointer.     2. Get the initCode length.     3. Copy the initCode from callata to memory at the free memory pointer.     4. Create the contract.     5. If creation failed (the address returned is zero), revert with CreateFailed().",
+					"params": {
+						"initCode": "The initCode to deploy.",
+						"value": "The value to send to the new contract constructor."
+					},
+					"returns": {
+						"createdAddr": "The created contract address."
+					}
+				},
+				"performCreate2(uint256,bytes,bytes32)": {
+					"details": "Assembly procedure:     1. Load the free memory pointer.     2. Get the initCode length.     3. Copy the initCode from callata to memory at the free memory pointer.     4. Create the contract using Create2 with the passed salt parameter.     5. If creation failed (the address returned is zero), revert with CreateFailed().",
+					"params": {
+						"initCode": "The initCode to deploy.",
+						"salt": "The salt to use for the create2 operation.",
+						"value": "The value to send to the new contract constructor."
+					},
+					"returns": {
+						"createdAddr": "The created contract address."
+					}
+				},
+				"proxiableUUID()": {
+					"details": "Returns the storage slot used by the implementation, as specified in [ERC1822](https://eips.ethereum.org/EIPS/eip-1822). Note: The `notDelegated` modifier prevents accidental upgrades to an implementation that is a proxy contract."
+				},
+				"supportsInterface(bytes4)": {
+					"details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+				},
+				"updateOwners(address[],address[])": {
+					"details": "If an owner is present in both `ownersToAdd` and `ownersToRemove`, it will be added as owner. The owner array cannot have 0 or duplicate addresses.",
+					"params": {
+						"ownersToAdd": "The address array of owners to be added.",
+						"ownersToRemove": "The address array of owners to be removed."
+					}
+				},
+				"upgradeToAndCall(address,bytes)": {
+					"details": "Upgrades the proxy's implementation to `newImplementation`. Emits a {Upgraded} event. Note: Passing in empty `data` skips the delegatecall to `newImplementation`."
+				},
+				"validateUserOp((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes),bytes32,uint256)": {
+					"details": "Must validate caller is the entryPoint.      Must validate the signature and nonce",
+					"params": {
+						"missingAccountFunds": "- Missing funds on the account's deposit in the entrypoint.                              This is the minimum amount to transfer to the sender(entryPoint) to be                              able to make the call. The excess is left as a deposit in the entrypoint                              for future calls. Can be withdrawn anytime using \"entryPoint.withdrawTo()\".                              In case there is a paymaster in the request (or the current deposit is high                              enough), this value will be zero.",
+						"userOp": "- The operation that is about to be executed.",
+						"userOpHash": "- Hash of the user's request data. can be used as the basis for signature."
+					},
+					"returns": {
+						"validationData": "      - Packaged ValidationData structure. use `_packValidationData` and                              `_unpackValidationData` to encode and decode.                              <20-byte> aggregatorOrSigFail - 0 for valid signature, 1 to mark signature failure,                                 otherwise, an address of an \"aggregator\" contract.                              <6-byte> validUntil - Last timestamp this operation is valid at, or 0 for \"indefinitely\"                              <6-byte> validAfter - First timestamp this operation is valid                                                    If an account doesn't use time-range, it is enough to                                                    return SIG_VALIDATION_FAILED value (1) for signature failure.                              Note that the validation code cannot use block.timestamp (or block.number) directly."
+					}
+				},
+				"withdrawDepositTo(address,uint256)": {
+					"params": {
+						"amount": "Amount to withdraw.",
+						"withdrawAddress": "Target to send to."
+					}
+				}
+			},
+			"stateVariables": {
+				"_INITIALIZABLE_STORAGE_POSITION": {
+					"details": "keccak256(abi.encode(uint256(keccak256(\"multi_owner_light_account_v1.initializable\")) - 1)) & ~bytes32(uint256(0xff));"
+				},
+				"_STORAGE_POSITION": {
+					"details": "The version used for namespaced storage is not linked to the release version of the contract. Storage versions will be updated only when storage layout changes are made. keccak256(abi.encode(uint256(keccak256(\"multi_owner_light_account_v1.storage\")) - 1)) & ~bytes32(uint256(0xff));"
+				}
+			},
+			"title": "A simple ERC-4337 compatible smart contract account with one or more designated owner accounts.",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"CordylineAccountInitialized(address,address[])": {
+					"notice": "Emitted when this account is first initialized."
+				},
+				"OwnersUpdated(address[],address[])": {
+					"notice": "This event is emitted when owners of the account are updated. Also emitted once at initialization, with an empty `removedOwners`."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"addDeposit()": {
+					"notice": "Deposit more funds for this account in the entry point."
+				},
+				"entryPoint()": {
+					"notice": "Return the entryPoint used by this account. Subclass should return the current entryPoint used by this account."
+				},
+				"execute(address,uint256,bytes)": {
+					"notice": "Execute a transaction. This may only be called directly by an owner or by the entry point via a user operation signed by an owner."
+				},
+				"executeBatch((address,uint256,bytes)[])": {
+					"notice": "execute a batch of calls. revert on the first call that fails. If the batch reverts, and it contains more than a single call, then wrap the revert with ExecuteError,  to mark the failing call index."
+				},
+				"executeBatch(address[],bytes[])": {
+					"notice": "Execute a sequence of transactions."
+				},
+				"executeBatch(address[],uint256[],bytes[])": {
+					"notice": "Execute a sequence of transactions."
+				},
+				"getDeposit()": {
+					"notice": "Check current account deposit in the entry point."
+				},
+				"getMessageHash(bytes)": {
+					"notice": "Returns the replay-safe hash of a message that can be signed by owners."
+				},
+				"getNonce()": {
+					"notice": "Return the account nonce. This method returns the next sequential nonce. For a nonce of a specific key, use `entrypoint.getNonce(account, key)`"
+				},
+				"initialize(address[])": {
+					"notice": "Called once as part of initialization, either during initial deployment or when first upgrading to this contract."
+				},
+				"owners()": {
+					"notice": "Return the owners of this account."
+				},
+				"performCreate(uint256,bytes)": {
+					"notice": "Creates a contract."
+				},
+				"performCreate2(uint256,bytes,bytes32)": {
+					"notice": "Creates a contract using create2 deterministic deployment."
+				},
+				"updateOwners(address[],address[])": {
+					"notice": "Update owners of the account. Can only be called by a current owner or from the entry point via a user operation signed by a current owner."
+				},
+				"validateUserOp((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes),bytes32,uint256)": {
+					"notice": "Validate user's signature and nonce the entryPoint will make the call to the recipient only if this validation call returns successfully. signature failure should be reported by returning SIG_VALIDATION_FAILED (1). This allows making a \"simulation call\" without a valid signature Other failures (e.g. nonce mismatch, or invalid signature format) should still revert to signal failure."
+				},
+				"withdrawDepositTo(address,uint256)": {
+					"notice": "Withdraw value from the account's deposit."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/MultiOwnerCordylineAccount.sol": "MultiOwnerCordylineAccount"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":@openzeppelin/=src/external/openzeppelin-contracts/",
+			":ds-test/=lib/forge-std/lib/ds-test/src/",
+			":forge-std/=lib/forge-std/src/"
+		]
+	},
+	"sources": {
+		"src/MultiOwnerCordylineAccount.sol": {
+			"keccak256": "0x5ac1e7aed8989c1da0a4de82b563908921e2bf667ee2b6a6448a0bf3601c5712",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://737ae90500f96383406788105d1875ecbce6f7b4164306ac3ea8d8195201ca43",
+				"dweb:/ipfs/QmTun3kr6FcbN8jLaSTU5jRaekNGpHVexUhZVU6iwvQyv3"
+			]
+		},
+		"src/common/BaseCordylineAccount.sol": {
+			"keccak256": "0x270c3406882ff2064549d88277fd18dfae01a1976f2a335173569cd1d0724b9a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://807d5620c34131e5da329078b39a4745c904c7da6814100f36ce31051eca0567",
+				"dweb:/ipfs/QmZCAxrWifDSNQVDuJfLMYoV3xEjnp2Mut4SYfr5b9PWHC"
+			]
+		},
+		"src/common/CustomSlotInitializable.sol": {
+			"keccak256": "0xc0ab88d8c4382428d6fdd6890f143773caf9623bce52a459c02a14f01b9210d6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://362fab071b94cb5ad4db2a06e8ec33a580563c19a047b0fd1802e596d961cb8c",
+				"dweb:/ipfs/QmVV9iCVrRtg6e7aYWaFkVUcT2EK9yxvwNod1R1fAA9Rny"
+			]
+		},
+		"src/common/ERC1271.sol": {
+			"keccak256": "0xe19b6b0d53965dd5957e3396ce7207b4f21b876db7a2719843eea510db5d5e64",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://08432003263c8f4703be0f2af08e47f136d1a94ba3338538505f73651fd85b3c",
+				"dweb:/ipfs/QmZh5MXTFiCibKUFu53jj1yYmWLds83sPQh5kY9urjVZi3"
+			]
+		},
+		"src/core/BaseAccount.sol": {
+			"keccak256": "0x071e38cf697bedbfe021955879277620ff763ecca1a1143ce14792e8c86c6d94",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1d55468ffadcec140a1dc853fac153de985d7335655e70935b9d28e148a495ab",
+				"dweb:/ipfs/QmXMPLx92TLCDRtNTdmTLSWBNbPVmSGeN9im2zsK9P9p4R"
+			]
+		},
+		"src/core/UserOperationLib.sol": {
+			"keccak256": "0xf332e1963894581e6217928dc162c13b4fdf4d3f996d9a4e365c104389a664d7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8f25c19e76484af2581d13bad59b32ca9befd39fefc001bc76d30132b5d9b27a",
+				"dweb:/ipfs/QmZq1P6pk5KWKpPp29X4tvTKzSu6URBNJMrgsPJzrSdpvw"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/interfaces/IERC1271.sol": {
+			"keccak256": "0x85a45f3f10014a0f8be41157a32b6a5f905753ea64a4b64e29fc12b7deeecf39",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c3c74009ce36136b36c77c23935b8e4a7b4f253be2da2be4fb4a916b1ce43743",
+				"dweb:/ipfs/QmcH36v3iN7SJJuF73AunLR2LtNxhVJ1wm63ph4dPZ4pcL"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol": {
+			"keccak256": "0xb69597a63b202e28401128bed6a6d259e8730191274471af7303eafb247881a3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://25addbda49a578b3318130585601344c5149a5549d749adf88e9685349a46b23",
+				"dweb:/ipfs/Qme2DuD8gpsve1ZvaSMQpBwMdpU7yAtekDwr7gUp8dX4zX"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol": {
+			"keccak256": "0x7f7a26306c79a65fb8b3b6c757cd74660c532cd8a02e165488e30027dd34ca49",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d01e0b2b837ee2f628545e54d8715b49c7ef2befd08356c2e7f6c50dde8a1c22",
+				"dweb:/ipfs/QmWBAn6y2D1xgftci97Z3qR9tQnkvwQpYwFwkTvDMvqU4i"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/Strings.sol": {
+			"keccak256": "0x55f102ea785d8399c0e58d1108e2d289506dde18abc6db1b7f68c1f9f9bc5792",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6e52e0a7765c943ef14e5bcf11e46e6139fa044be564881378349236bf2e3453",
+				"dweb:/ipfs/QmZEeeXoFPW47amyP35gfzomF9DixqqTEPwzBakv6cZw6i"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol": {
+			"keccak256": "0xeed0a08b0b091f528356cbc7245891a4c748682d4f6a18055e8e6ca77d12a6cf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ba80ba06c8e6be852847e4c5f4492cef801feb6558ae09ed705ff2e04ea8b13c",
+				"dweb:/ipfs/QmXRJDv3xHLVQCVXg1ZvR35QS9sij5y9NDWYzMfUfAdTHF"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/cryptography/MessageHashUtils.sol": {
+			"keccak256": "0xba333517a3add42cd35fe877656fc3dfcc9de53baa4f3aabbd6d12a92e4ea435",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2ceacff44c0fdc81e48e0e0b1db87a2076d3c1fb497341de077bf1da9f6b406c",
+				"dweb:/ipfs/QmRUo1muMRAewxrKQ7TkXUtknyRoR57AyEkoPpiuZQ8FzX"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/cryptography/SignatureChecker.sol": {
+			"keccak256": "0x6b11eb41a228cca35d4b662b4df69fcd75192851365102690f57b2ac01e83fe6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ab006a2983ed350d2af21ddcdd835dcae3b8340086cc4d088460da5abd041f69",
+				"dweb:/ipfs/QmbEacDhkJZiGrgzLjB4pNtE8Z1uudjDw1DvcDUTVQFsLG"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x4296879f55019b23e135000eb36896057e7101fb7fb859c5ef690cf14643757b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://87b3541437c8c443ccd36795e56a338ed12855eec17f8da624511b8d1a7e14df",
+				"dweb:/ipfs/QmeJQCtZrQjtJLr6u7ZHWeH3pBnjtLWzvRrKViAi7UZqxL"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/math/Math.sol": {
+			"keccak256": "0x005ec64c6313f0555d59e278f9a7a5ab2db5bdc72a027f255a37c327af1ec02d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ece9f0b9c8daca08c76b6b5405a6446b6f73b3a15fab7ff56e296cbd4a2c875",
+				"dweb:/ipfs/QmQyRpyPRL5SQuAgj6SHmbir3foX65FJjbVTTQrA2EFg6L"
+			]
+		},
+		"src/external/openzeppelin-contracts/contracts/utils/math/SignedMath.sol": {
+			"keccak256": "0x5f7e4076e175393767754387c962926577f1660dd9b810187b9002407656be72",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7d533a1c97cd43a57cd9c465f7ee8dd0e39ae93a8fb8ff8e5303a356b081cdcc",
+				"dweb:/ipfs/QmVBEei6aTnvYNZp2CHYVNKyZS4q1KkjANfY39WVXZXVoT"
+			]
+		},
+		"src/external/solady/EIP712.sol": {
+			"keccak256": "0xc256c8769c2aa92fa192d21f5f4bd4387dfc6ef095d1a18476a3c6ea2e43f4f3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ce6386477e8f74d89e68071c000bd98ebdab9f0ad154615b84492ff94d17a783",
+				"dweb:/ipfs/QmZMX8Pivh7sJxX72pjPn2PcMREcRz1AM4oKNNgPf6bndK"
+			]
+		},
+		"src/external/solady/UUPSUpgradeable.sol": {
+			"keccak256": "0x46d39579c440757e6e20ed164ca4409bd8eb652d506d48a466755c165d27f8c5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3c21148774462900d0929d09a2d56420a6850065d91ac001c10887ee796074ac",
+				"dweb:/ipfs/QmNT12cuvaqf1puHQYAJeHFoiYBfmgKKbkLkkW7ETEkjRk"
+			]
+		},
+		"src/helpers/CastLib.sol": {
+			"keccak256": "0x41878302f28dc4a1e9aeccfb8e0ce5f08aa491180ec5cdd3e91b2122973f5a2d",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://dd41f66cbd1b3be3d89e5fd8c5ad031fdd3e4edef7ab254e565b5dd230f4bf96",
+				"dweb:/ipfs/QmQNPTthwuDcG6W7uWw5DetrXADJ6HbJ85e35yx4gp77ur"
+			]
+		},
+		"src/helpers/FunctionReferenceLib.sol": {
+			"keccak256": "0xd595f30ebef1b0d9b70f4f7c9c2d45bcf62ea83d476f96814b7efeccf121b4d4",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://84825ade7d585340c348f4429460d0dafa41792873f3fa3a585245a9feffce7b",
+				"dweb:/ipfs/QmUq1ikKchZyWV6XFHQb3cCcRgYrQPJh7wzdCuoZhYrq5J"
+			]
+		},
+		"src/helpers/Helpers.sol": {
+			"keccak256": "0x42b948af5fa14a96149611595df1186800c7558b2de8762e4b45a7c45c16f65e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://737a7908131ece48a5df1faaa3d0be79c42792379c27f5615dae6aa14cd68c2f",
+				"dweb:/ipfs/QmPAxGMDxuek7XWSUVfZpvYE8bustfsjTDVDK8hmE88e1f"
+			]
+		},
+		"src/interfaces/IAccount.sol": {
+			"keccak256": "0x1030b464b49ce80da46b5b6c9af357c2d526f308de61391db6a4ec767d33b864",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://671945f8e18e7305797312b5a209506be3c9bd1d9b9b561c1e8863bccfa61319",
+				"dweb:/ipfs/QmVanLK5Aenrb7J94doiE1C9oHwo86jvv8NrpDeNHwvnii"
+			]
+		},
+		"src/interfaces/IAggregator.sol": {
+			"keccak256": "0xdf580eafa015b81bde436d6a5468cc92b531ada84007cef885e923f6dfc5e8bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://99f0060626568619ac94d750eb4c0888d92ca5775a6bd957fef9847843835b77",
+				"dweb:/ipfs/QmXJer3D9sTkEj3mmUDqpdqfGpe46Rn9G22nGrfZdP2wAT"
+			]
+		},
+		"src/interfaces/IEntryPoint.sol": {
+			"keccak256": "0x3b0423737e810dd886183ed32cfed9b45edd315f5fb3e1076fc19f86791adc64",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c43081efaa2eda581b6249053281bb58cb0c4eeb6bf87efc55d95daaec2fc931",
+				"dweb:/ipfs/QmXRN2JnyzWZNeFMHauTnDuc7jhxGY4ZkY37HTtjXKdC87"
+			]
+		},
+		"src/interfaces/INonceManager.sol": {
+			"keccak256": "0xee493ae200b8c675bdc0da66f7ac6bb883ecea33672d7d0a95526b9eecdedf87",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://979784a0333ac4ef3cc53ab9323a4b7fa574d929bd511f0eed03d3b0370db22d",
+				"dweb:/ipfs/QmeiciN5gs4upM6vfKvrRxWiDBUzMU4uJQRRkJajhim9gX"
+			]
+		},
+		"src/interfaces/IPluginManager.sol": {
+			"keccak256": "0x496ea9554c50d13982f1ba0b95999fd69f08f8d3704c8497ccb38b51f8d7c290",
+			"license": "CC0-1.0",
+			"urls": [
+				"bzz-raw://65afaa6f37715600e2f1c92bf83d477fb3cfccd6b4ebd575082d4ea3b3fd053b",
+				"dweb:/ipfs/QmYUieL9MKQzNDrkkPewmATGTqAeQhzGZBd3Q5zBhd9KFD"
+			]
+		},
+		"src/interfaces/ISenderCreator.sol": {
+			"keccak256": "0x677f651d733162b80d1af7901e4f36469e362737a8353d1d0cc7bb94489e4ba4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d6905a80acd70b444ea230b5b582164cb99aaae518bf72c88f8292df31615570",
+				"dweb:/ipfs/QmfTKTPwJYf9pmA3T5PE5cCG8GLLDrLaq3jQqMP3pVRL6w"
+			]
+		},
+		"src/interfaces/IStakeManager.sol": {
+			"keccak256": "0xe48e904fcac02295aad07fbfa1c1d449a74bf44c04e432afef6f34d1ef726ae0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5882b635ea6f5da9ae411485975888431de571f85d4baf35e3db1a83c1f14b85",
+				"dweb:/ipfs/QmVSTX36Byr48y8JBmz1hCTGAAyQdTYegQbsSqdRNuSQYz"
+			]
+		},
+		"src/interfaces/PackedUserOperation.sol": {
+			"keccak256": "0xb15188e25e45fe73097e279675b6c0beccbd4133ead2260f8f0c4ba840046800",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5d14c1edd1e95d37c26e54bb34305e2cc9dedc46eb75ec91caeb777678e8ea79",
+				"dweb:/ipfs/QmcCL2syVtV7W3XvYx3si84MPkbEJKqEN8hjFNhAPoDDhK"
+			]
+		},
+		"src/libraries/Constants.sol": {
+			"keccak256": "0xeaac2b00953c5bc76345d6a07ca55057856b27590b92b90fe23d10c358174d30",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://92bc1757a47c778143cc4f1801526080921a92e63396d4e4e4f8c86581982865",
+				"dweb:/ipfs/Qmbt1D83T5R7KzBmgBRQSdPiGYtG9wfHLC6UWHseVxVZAW"
+			]
+		},
+		"src/libraries/LinkedListSetLib.sol": {
+			"keccak256": "0xdef5dd156a252be6e178fa541de6e58eff6da5118b089387f08469a72aa13fe2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fd44daa076adee502b87a37fd536f3a0f0661f4b0afa1846514b4e24c24975f9",
+				"dweb:/ipfs/QmQa5ormcb9WErtJut6oF9QcAhWgekhhqUMmytzgaxaaSS"
+			]
+		},
+		"src/samples/callback/TokenCallbackHandler.sol": {
+			"keccak256": "0xd91a14caef87567866880b0f01955dfa50b4bc593dcecfcb38be41d98e6b9662",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7f20ba13333688a9001c5426db032e8251bb1c76087b654e5421f478f17fd26b",
+				"dweb:/ipfs/QmXFbor8LktEfWcRn83F1j1T8Sc319PM24KYR9fyTaS43x"
+			]
+		},
+		"src/utils/Exec.sol": {
+			"keccak256": "0x9c724ee22011193ea7f92d3c3c467ee6aa27139d3ddc225c7f1254d241e6ccdd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://96cc246fe944a212cbb9ba82065b2d380ec80954fcdb5d8d982b476bd5b72868",
+				"dweb:/ipfs/QmZ25eFixEhukbfWGz5TBjsp7YohxUqD5i2rxhaghfvHt8"
+			]
+		}
+	},
+	"version": 1
+}
