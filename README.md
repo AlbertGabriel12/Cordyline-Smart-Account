@@ -4,6 +4,8 @@
 
 A set of lightweight ERC-4337 compatible smart contract accounts with designated ownership.
 
+Cordyline Smart Account is inspired in [Light-Account](https://github.com/alchemyplatform/light-account) but focused in Entrypoint v0.8 and Polygon Chain.
+
 ## Features
 
 ### `CordylineAccount`
