@@ -1,0 +1,141 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "UnauthorizedCallContext",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "UpgradeFailed",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "Upgraded",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "proxiableUUID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "upgradeToAndCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Solady (https://github.com/vectorized/solady/blob/main/src/utils/UUPSUpgradeable.sol)Modified from OpenZeppelin (https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/utils/UUPSUpgradeable.sol) Note: - This implementation is intended to be used with ERC1967 proxies. See: `LibClone.deployERC1967` and related functions. - This implementation is NOT compatible with legacy OpenZeppelin proxies which do not store the implementation at `_ERC1967_IMPLEMENTATION_SLOT`.",
+			"errors": {
+				"UnauthorizedCallContext()": [
+					{
+						"details": "The call is from an unauthorized call context."
+					}
+				],
+				"UpgradeFailed()": [
+					{
+						"details": "The upgrade failed."
+					}
+				]
+			},
+			"events": {
+				"Upgraded(address)": {
+					"details": "Emitted when the proxy's implementation is upgraded."
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"proxiableUUID()": {
+					"details": "Returns the storage slot used by the implementation, as specified in [ERC1822](https://eips.ethereum.org/EIPS/eip-1822). Note: The `notDelegated` modifier prevents accidental upgrades to an implementation that is a proxy contract."
+				},
+				"upgradeToAndCall(address,bytes)": {
+					"details": "Upgrades the proxy's implementation to `newImplementation`. Emits a {Upgraded} event. Note: Passing in empty `data` skips the delegatecall to `newImplementation`."
+				}
+			},
+			"stateVariables": {
+				"_ERC1967_IMPLEMENTATION_SLOT": {
+					"details": "The ERC-1967 storage slot for the implementation in the proxy. `uint256(keccak256(\"eip1967.proxy.implementation\")) - 1`."
+				},
+				"_UPGRADED_EVENT_SIGNATURE": {
+					"details": "`keccak256(bytes(\"Upgraded(address)\"))`."
+				},
+				"__self": {
+					"details": "For checking if the context is a delegate call."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "UUPS proxy mixin.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/CordylineAccount_flattened.sol": "UUPSUpgradeable"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":@openzeppelin/=src/external/openzeppelin-contracts/",
+			":ds-test/=lib/forge-std/lib/ds-test/src/",
+			":forge-std/=lib/forge-std/src/"
+		]
+	},
+	"sources": {
+		"src/CordylineAccount_flattened.sol": {
+			"keccak256": "0x5033f0aef53ae73b2b21a1697e795a997d97ad9a3708742f30bbfd61d13096d5",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://fb2ed4efa461c23823df289e50f22483feb92c5e4ab7b8518906e94f2d5f5273",
+				"dweb:/ipfs/QmaErmKxzwKyCyCKjsG8SCiQVoufv4bPvk3oEnYRzENUES"
+			]
+		}
+	},
+	"version": 1
+}

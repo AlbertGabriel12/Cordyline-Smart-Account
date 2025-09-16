@@ -1,0 +1,281 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "sender",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nonce",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "initCode",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "accountGasLimits",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "uint256",
+								"name": "preVerificationGas",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "gasFees",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "bytes",
+								"name": "paymasterAndData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "signature",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct PackedUserOperation[]",
+						"name": "userOps",
+						"type": "tuple[]"
+					}
+				],
+				"name": "aggregateSignatures",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "aggregatedSignature",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "sender",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nonce",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "initCode",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "accountGasLimits",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "uint256",
+								"name": "preVerificationGas",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "gasFees",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "bytes",
+								"name": "paymasterAndData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "signature",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct PackedUserOperation[]",
+						"name": "userOps",
+						"type": "tuple[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "signature",
+						"type": "bytes"
+					}
+				],
+				"name": "validateSignatures",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "sender",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nonce",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "initCode",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "accountGasLimits",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "uint256",
+								"name": "preVerificationGas",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "gasFees",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "bytes",
+								"name": "paymasterAndData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "signature",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct PackedUserOperation",
+						"name": "userOp",
+						"type": "tuple"
+					}
+				],
+				"name": "validateUserOpSignature",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "sigForUserOp",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"aggregateSignatures((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes)[])": {
+					"params": {
+						"userOps": "- An array of UserOperations to collect the signatures from."
+					},
+					"returns": {
+						"aggregatedSignature": "- The aggregated signature."
+					}
+				},
+				"validateSignatures((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes)[],bytes)": {
+					"params": {
+						"signature": "- The aggregated signature.",
+						"userOps": "- An array of UserOperations to validate the signature for."
+					}
+				},
+				"validateUserOpSignature((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes))": {
+					"params": {
+						"userOp": "- The userOperation received from the user."
+					},
+					"returns": {
+						"sigForUserOp": "- The value to put into the signature field of the userOp when calling handleOps.                        (usually empty, unless account and aggregator support some kind of \"multisig\"."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"aggregateSignatures((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes)[])": {
+					"notice": "Aggregate multiple signatures into a single value. This method is called off-chain to calculate the signature to pass with handleOps() bundler MAY use optimized custom code to perform this aggregation."
+				},
+				"validateSignatures((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes)[],bytes)": {
+					"notice": "Validate an aggregated signature. Reverts if the aggregated signature does not match the given list of operations."
+				},
+				"validateUserOpSignature((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes))": {
+					"notice": "Validate the signature of a single userOp. This method should be called by bundler after EntryPointSimulation.simulateValidation() returns the aggregator this account uses. First it validates the signature over the userOp. Then it returns data to be used when creating the handleOps."
+				}
+			},
+			"notice": "Aggregated Signatures validator.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/CordylineAccount_flattened.sol": "IAggregator"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":@openzeppelin/=src/external/openzeppelin-contracts/",
+			":ds-test/=lib/forge-std/lib/ds-test/src/",
+			":forge-std/=lib/forge-std/src/"
+		]
+	},
+	"sources": {
+		"src/CordylineAccount_flattened.sol": {
+			"keccak256": "0x5033f0aef53ae73b2b21a1697e795a997d97ad9a3708742f30bbfd61d13096d5",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://fb2ed4efa461c23823df289e50f22483feb92c5e4ab7b8518906e94f2d5f5273",
+				"dweb:/ipfs/QmaErmKxzwKyCyCKjsG8SCiQVoufv4bPvk3oEnYRzENUES"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,133 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"validateUserOp((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes),bytes32,uint256)": "19822f7c"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "sender",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "nonce",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes",
+							"name": "initCode",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes",
+							"name": "callData",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "accountGasLimits",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "uint256",
+							"name": "preVerificationGas",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "gasFees",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "bytes",
+							"name": "paymasterAndData",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes",
+							"name": "signature",
+							"type": "bytes"
+						}
+					],
+					"internalType": "struct PackedUserOperation",
+					"name": "userOp",
+					"type": "tuple"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "userOpHash",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "missingAccountFunds",
+					"type": "uint256"
+				}
+			],
+			"name": "validateUserOp",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "validationData",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

@@ -1,0 +1,256 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"aggregateSignatures((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes)[])": "ae574a43",
+			"validateSignatures((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes)[],bytes)": "2dd81133",
+			"validateUserOpSignature((address,uint256,bytes,bytes,bytes32,uint256,bytes32,bytes,bytes))": "062a422b"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "sender",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "nonce",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes",
+							"name": "initCode",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes",
+							"name": "callData",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "accountGasLimits",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "uint256",
+							"name": "preVerificationGas",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "gasFees",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "bytes",
+							"name": "paymasterAndData",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes",
+							"name": "signature",
+							"type": "bytes"
+						}
+					],
+					"internalType": "struct PackedUserOperation[]",
+					"name": "userOps",
+					"type": "tuple[]"
+				}
+			],
+			"name": "aggregateSignatures",
+			"outputs": [
+				{
+					"internalType": "bytes",
+					"name": "aggregatedSignature",
+					"type": "bytes"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "sender",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "nonce",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes",
+							"name": "initCode",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes",
+							"name": "callData",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "accountGasLimits",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "uint256",
+							"name": "preVerificationGas",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "gasFees",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "bytes",
+							"name": "paymasterAndData",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes",
+							"name": "signature",
+							"type": "bytes"
+						}
+					],
+					"internalType": "struct PackedUserOperation[]",
+					"name": "userOps",
+					"type": "tuple[]"
+				},
+				{
+					"internalType": "bytes",
+					"name": "signature",
+					"type": "bytes"
+				}
+			],
+			"name": "validateSignatures",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "sender",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "nonce",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes",
+							"name": "initCode",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes",
+							"name": "callData",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "accountGasLimits",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "uint256",
+							"name": "preVerificationGas",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "gasFees",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "bytes",
+							"name": "paymasterAndData",
+							"type": "bytes"
+						},
+						{
+							"internalType": "bytes",
+							"name": "signature",
+							"type": "bytes"
+						}
+					],
+					"internalType": "struct PackedUserOperation",
+					"name": "userOp",
+					"type": "tuple"
+				}
+			],
+			"name": "validateUserOpSignature",
+			"outputs": [
+				{
+					"internalType": "bytes",
+					"name": "sigForUserOp",
+					"type": "bytes"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}
