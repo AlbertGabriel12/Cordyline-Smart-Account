@@ -2,7 +2,7 @@
 pragma solidity ^0.8.23;
 
 import {BaseAccount} from "../core/BaseAccount.sol";
-import {SIG_VALIDATION_FAILED, SIG_VALIDATION_SUCCESS} from "../core/Helpers.sol";
+import {SIG_VALIDATION_FAILED, SIG_VALIDATION_SUCCESS} from "../helpers/Helpers.sol";
 import {IEntryPoint} from "../interfaces/IEntryPoint.sol";
 import {PackedUserOperation} from "../interfaces/PackedUserOperation.sol";
 import {TokenCallbackHandler} from "../samples/callback/TokenCallbackHandler.sol";
