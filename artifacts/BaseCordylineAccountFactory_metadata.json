@@ -9,22 +9,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "owner",
-						"type": "address"
-					},
-					{
-						"internalType": "contract IEntryPoint",
-						"name": "entryPoint",
-						"type": "address"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "target",
 						"type": "address"
 					}
@@ -147,19 +131,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "ACCOUNT_IMPLEMENTATION",
-				"outputs": [
-					{
-						"internalType": "contract CordylineAccount",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "ENTRY_POINT",
 				"outputs": [
 					{
@@ -194,54 +165,6 @@
 				"name": "addStake",
 				"outputs": [],
 				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "owner",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "salt",
-						"type": "uint256"
-					}
-				],
-				"name": "createAccount",
-				"outputs": [
-					{
-						"internalType": "contract CordylineAccount",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "owner",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "salt",
-						"type": "uint256"
-					}
-				],
-				"name": "getAddress",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -339,7 +262,6 @@
 			}
 		],
 		"devdoc": {
-			"details": "A UserOperations \"initCode\" holds the address of the factory, and a method call (`createAccount`). The factory's `createAccount` returns the target account address even if it is already installed. This way, `entryPoint.getSenderAddress()` can be called either before or after the account is created.",
 			"errors": {
 				"AddressEmptyCode(address)": [
 					{
@@ -384,25 +306,6 @@
 						"unstakeDelay": "Unstake delay for the stake."
 					}
 				},
-				"createAccount(address,uint256)": {
-					"details": "During UserOperation execution, this method is called only if the account is not deployed. This method returns an existing account address so that entryPoint.getSenderAddress() would work even after account creation.",
-					"params": {
-						"owner": "The owner of the account to be created.",
-						"salt": "A salt, which can be changed to create multiple accounts with the same owner."
-					},
-					"returns": {
-						"account": "The address of either the newly deployed account or an existing account with this owner and salt."
-					}
-				},
-				"getAddress(address,uint256)": {
-					"params": {
-						"owner": "The owner of the account to be created.",
-						"salt": "A salt, which can be changed to create multiple accounts with the same owner."
-					},
-					"returns": {
-						"_0": "The address of the account that would be created with `createAccount`."
-					}
-				},
 				"owner()": {
 					"details": "Returns the address of the current owner."
 				},
@@ -430,7 +333,6 @@
 					}
 				}
 			},
-			"title": "A factory contract for CordylineAccount.",
 			"version": 1
 		},
 		"userdoc": {
@@ -438,12 +340,6 @@
 			"methods": {
 				"addStake(uint32,uint256)": {
 					"notice": "Add stake to an entry point."
-				},
-				"createAccount(address,uint256)": {
-					"notice": "Create an account, and return its address. Returns the address even if the account is already deployed."
-				},
-				"getAddress(address,uint256)": {
-					"notice": "Calculate the counterfactual address of this account as it would be returned by `createAccount`."
 				},
 				"renounceOwnership()": {
 					"notice": "Overriding to disable renounce ownership in Ownable."
@@ -463,7 +359,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"src/CordylineAccountFactory_flattened.sol": "CordylineAccountFactory"
+			"src/CordylineAccountFactory_flattened.sol": "BaseCordylineAccountFactory"
 		},
 		"evmVersion": "prague",
 		"libraries": {},

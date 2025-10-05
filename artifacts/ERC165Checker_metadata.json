@@ -4,33 +4,9 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "length",
-						"type": "uint256"
-					}
-				],
-				"name": "StringsInsufficientHexLength",
-				"type": "error"
-			}
-		],
+		"abi": [],
 		"devdoc": {
-			"details": "String operations.",
-			"errors": {
-				"StringsInsufficientHexLength(uint256,uint256)": [
-					{
-						"details": "The `value` string doesn't fit in the specified `length`."
-					}
-				]
-			},
+			"details": "Library used to query support of an interface declared via {IERC165}. Note that these functions return the actual result of the query: they do not `revert` if an interface is not supported. It is up to the caller to decide what to do in these cases.",
 			"kind": "dev",
 			"methods": {},
 			"version": 1
@@ -43,7 +19,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"src/CordylineAccountFactory_flattened.sol": "Strings"
+			"src/CordylineAccountFactory_flattened.sol": "ERC165Checker"
 		},
 		"evmVersion": "prague",
 		"libraries": {},

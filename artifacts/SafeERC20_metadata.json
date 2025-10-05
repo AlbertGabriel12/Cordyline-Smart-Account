@@ -8,31 +8,53 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
-						"name": "value",
+						"name": "currentAllowance",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
-						"name": "length",
+						"name": "requestedDecrease",
 						"type": "uint256"
 					}
 				],
-				"name": "StringsInsufficientHexLength",
+				"name": "SafeERC20FailedDecreaseAllowance",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "SafeERC20FailedOperation",
 				"type": "error"
 			}
 		],
 		"devdoc": {
-			"details": "String operations.",
+			"details": "Wrappers around ERC20 operations that throw on failure (when the token contract returns false). Tokens that return no value (and instead revert or throw on failure) are also supported, non-reverting calls are assumed to be successful. To use this library you can add a `using SafeERC20 for IERC20;` statement to your contract, which allows you to call the safe operations as `token.safeTransfer(...)`, etc.",
 			"errors": {
-				"StringsInsufficientHexLength(uint256,uint256)": [
+				"SafeERC20FailedDecreaseAllowance(address,uint256,uint256)": [
 					{
-						"details": "The `value` string doesn't fit in the specified `length`."
+						"details": "Indicates a failed `decreaseAllowance` request."
+					}
+				],
+				"SafeERC20FailedOperation(address)": [
+					{
+						"details": "An operation with an ERC20 token failed."
 					}
 				]
 			},
 			"kind": "dev",
 			"methods": {},
+			"title": "SafeERC20",
 			"version": 1
 		},
 		"userdoc": {
@@ -43,7 +65,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"src/CordylineAccountFactory_flattened.sol": "Strings"
+			"src/CordylineAccountFactory_flattened.sol": "SafeERC20"
 		},
 		"evmVersion": "prague",
 		"libraries": {},

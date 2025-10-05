@@ -8,26 +8,47 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "length",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
 					}
 				],
-				"name": "StringsInsufficientHexLength",
+				"name": "AddressEmptyCode",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "AddressInsufficientBalance",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "FailedInnerCall",
 				"type": "error"
 			}
 		],
 		"devdoc": {
-			"details": "String operations.",
+			"details": "Collection of functions related to the address type",
 			"errors": {
-				"StringsInsufficientHexLength(uint256,uint256)": [
+				"AddressEmptyCode(address)": [
 					{
-						"details": "The `value` string doesn't fit in the specified `length`."
+						"details": "There's no code at `target` (it is not a contract)."
+					}
+				],
+				"AddressInsufficientBalance(address)": [
+					{
+						"details": "The ETH balance of the account is not enough to perform the operation."
+					}
+				],
+				"FailedInnerCall()": [
+					{
+						"details": "A call to an address target failed. The target may have reverted."
 					}
 				]
 			},
@@ -43,7 +64,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"src/CordylineAccountFactory_flattened.sol": "Strings"
+			"src/CordylineAccountFactory_flattened.sol": "Address"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
